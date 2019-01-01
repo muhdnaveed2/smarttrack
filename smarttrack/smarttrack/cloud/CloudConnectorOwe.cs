@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace smarttrack.Cloud
 {
@@ -36,13 +37,16 @@ namespace smarttrack.Cloud
             }
         }
 
-        internal async Task<bool> LabelGenerate(ShippingLabel shippingLabel)
+        //modify this method to generate label
+        internal async Task<bool> GenerateLabel(ShippingLabel shippingLabel)
         {
             using (var c = new HttpClient())
             {
                 var client = new System.Net.Http.HttpClient();
-                client.BaseAddress = new Uri(Constants.URL_DEV);
-                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "60de225c88489983f3db74f0a3cfeb2b02c3722c");
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", App.UserToken);
+
+
+
 
                 var objShippingLabel = new ShippingLabel();
                 objShippingLabel.company = "One World Express";
@@ -52,14 +56,14 @@ namespace smarttrack.Cloud
                 objShippingLabel.address_line_3 = "Hayes";
                 objShippingLabel.city = "London";
                 objShippingLabel.countryIso = "GB";
-                objShippingLabel.postcode = "UB3 3NB";
+                objShippingLabel.postcode = "TN4 9NE";
                 objShippingLabel.currency = "GBP";
                 objShippingLabel.value = Convert.ToInt32(10.00);
-                objShippingLabel.weight = Convert.ToInt32(10.500);
-                objShippingLabel.serviceCode = "1H";
+                objShippingLabel.weight = Convert.ToInt32(0.5);
+                objShippingLabel.serviceCode = "3HPA";
                 objShippingLabel.number_pieces = 1;
-                objShippingLabel.description = "Test";
-                objShippingLabel.hawb = "uae";
+                objShippingLabel.description = "Books";
+                objShippingLabel.hawb = "app-" + DateTime.Now;
 
                 /*var jsonRequest = new {
                                 
@@ -74,6 +78,8 @@ namespace smarttrack.Cloud
                 if (result.IsSuccessStatusCode)
                 {
                     var response = JsonConvert.DeserializeObject(result.Content.ReadAsStringAsync().Result);
+                    string labelLink = "http://staging.smarttrack.co/_assets/pdf/2019_01_01/92977.pdf";
+                    Device.OpenUri(new Uri(labelLink));
                     return true;
                 }
                 else
