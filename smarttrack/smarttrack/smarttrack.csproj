@@ -20,7 +20,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="GenerateLabel.xaml.cs">
+      <DependentUpon>GenerateLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="MainMenuMenuItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainMenu.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

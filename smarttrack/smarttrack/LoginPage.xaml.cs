@@ -37,7 +37,7 @@ namespace smarttrack
                 if (await isValid)
                 {
                     App.IsUserLoggedIn = true;
-                    await Navigation.PushAsync(new MainPage());
+                    await Navigation.PushAsync(new MainMenu());
                 }
                 else
                 {

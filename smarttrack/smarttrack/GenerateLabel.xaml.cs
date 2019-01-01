@@ -9,9 +9,9 @@ using Xamarin.Forms;
 
 namespace smarttrack
 {
-    public partial class MainPage : ContentPage
+    public partial class GenerateLabel : ContentPage
     {
-        public MainPage()
+        public GenerateLabel()
         {
             InitializeComponent();
         }
@@ -37,7 +37,7 @@ namespace smarttrack
                     weight = Convert.ToInt32(weightEntry.Text)
                 };
 
-                var isValid = GenerateLabel(label);
+                var isValid = LabelGenerate(label);
                 if (!await isValid)
                 {
 
@@ -61,10 +61,10 @@ namespace smarttrack
             await Navigation.PopAsync();
         }
 
-        async Task<bool> GenerateLabel(ShippingLabel label)
+        async Task<bool> LabelGenerate(ShippingLabel label)
         {
             CloudConnectorOwe cco = new CloudConnectorOwe();
-            bool validLogin = await cco.GenerateLabel(label);
+            bool validLogin = await cco.LabelGenerate(label);
             return validLogin;
         }
     }
