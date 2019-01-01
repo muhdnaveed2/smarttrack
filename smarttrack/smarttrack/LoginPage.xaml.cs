@@ -57,5 +57,10 @@ namespace smarttrack
             bool validLogin = await cco.GetUserTokenAsync(user);
             return validLogin;
         }
+
+        public void ShowPass(object sender, EventArgs args)
+        {
+            passwordEntry.IsPassword = passwordEntry.IsPassword ? false : true;
+        }
     }
 }
