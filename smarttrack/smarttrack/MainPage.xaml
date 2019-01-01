@@ -4,7 +4,10 @@
         <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="StartAndExpand">
+        <ScrollView Orientation="Both">
+         <StackLayout VerticalOptions="Center" Margin="20">
+            
+
             <Label Text="AddressLine1" />
             <Entry x:Name="addressline1Entry" />
             
@@ -47,9 +50,11 @@
             <Label Text="Weight" />
             <Entry x:Name="weightEntry" />
 
+           <Button Text="Create Label" Clicked="OnCreateButtonClicked" />
 
-            <Button Text="Create Label" Clicked="OnCreateButtonClicked" />
-            <Label x:Name="messageLabel" />
+
+           <Label x:Name="messageLabel" />
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

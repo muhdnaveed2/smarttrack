@@ -17,33 +17,40 @@ namespace smarttrack
         }
         async void OnCreateButtonClicked(object sender, EventArgs e)
         {
-            var label = new ShippingLabel
+            try
             {
-               AddressLine1 = addressline1Entry.Text,
-               AddressLine2 = addressline2Entry.Text,
-               AddressLine3 = addressline3Entry.Text,
-               City = cityEntry.Text,
-               Company = companyEntry.Text,
-               Contact = contactEntry.Text,
-               CountryIso = countryisoEntry.Text,
-               Currency = currencyEntry.Text,
-               Description = descriptionEntry.Text,
-               Email = emailEntry.Text,
-               SenderName = sendernameEntry.Text,
-               State = stateEntry.Text,
-               Value = Convert.ToInt32(valueEntry.Text),
-               Weight = Convert.ToInt32(weightEntry.Text)
-            };
+                var label = new ShippingLabel
+                {
+                    AddressLine1 = addressline1Entry.Text,
+                    AddressLine2 = addressline2Entry.Text,
+                    AddressLine3 = addressline3Entry.Text,
+                    City = cityEntry.Text,
+                    Company = companyEntry.Text,
+                    Contact = contactEntry.Text,
+                    CountryIso = countryisoEntry.Text,
+                    Currency = currencyEntry.Text,
+                    Description = descriptionEntry.Text,
+                    Email = emailEntry.Text,
+                    SenderName = sendernameEntry.Text,
+                    State = stateEntry.Text,
+                    Value = Convert.ToInt32(valueEntry.Text),
+                    Weight = Convert.ToInt32(weightEntry.Text)
+                };
 
-            var isValid = GenerateLabel(label);
-            if (! await isValid)
-            {
-              
+                var isValid = GenerateLabel(label);
+                if (!await isValid)
+                {
+
+                }
+                else
+                {
+                    messageLabel.Text = "Label creation failed";
+                    //passwordEntry.Text = string.Empty;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                messageLabel.Text = "Label creation failed";
-                //passwordEntry.Text = string.Empty;
+                messageLabel.Text = ex.Message;
             }
         }
 
