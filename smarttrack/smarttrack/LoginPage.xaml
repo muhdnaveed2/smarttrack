@@ -11,6 +11,11 @@
             <Label Text="Password" />
             <Entry x:Name="passwordEntry"  IsPassword="true" />
             <Button Text="Login" BackgroundColor="DodgerBlue" TextColor="White" Margin="0,50,0,0" Clicked="OnLoginButtonClicked" />
+            <Image Source="eye32.png" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="1" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ShowPass" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
             <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>
