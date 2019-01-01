@@ -38,7 +38,7 @@ namespace smarttrack.Cloud
         }
 
         //modify this method to generate label
-        internal async Task<bool> GenerateLabel(ShippingLabel shippingLabel)
+        internal async Task<bool> LabelGenerate(ShippingLabel shippingLabel)
         {
             using (var c = new HttpClient())
             {
