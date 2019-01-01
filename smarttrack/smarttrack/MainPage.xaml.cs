@@ -21,20 +21,20 @@ namespace smarttrack
             {
                 var label = new ShippingLabel
                 {
-                    AddressLine1 = addressline1Entry.Text,
-                    AddressLine2 = addressline2Entry.Text,
-                    AddressLine3 = addressline3Entry.Text,
-                    City = cityEntry.Text,
-                    Company = companyEntry.Text,
-                    Contact = contactEntry.Text,
-                    CountryIso = countryisoEntry.Text,
-                    Currency = currencyEntry.Text,
-                    Description = descriptionEntry.Text,
-                    Email = emailEntry.Text,
-                    SenderName = sendernameEntry.Text,
-                    State = stateEntry.Text,
-                    Value = Convert.ToInt32(valueEntry.Text),
-                    Weight = Convert.ToInt32(weightEntry.Text)
+                    address_line_1 = addressline1Entry.Text,
+                    address_line_2 = addressline2Entry.Text,
+                    address_line_3 = addressline3Entry.Text,
+                    city = cityEntry.Text,
+                    company = companyEntry.Text,
+                    contact = contactEntry.Text,
+                    countryIso = countryisoEntry.Text,
+                    currency = currencyEntry.Text,
+                    description = descriptionEntry.Text,
+                    email = emailEntry.Text,
+                    sender_name = sendernameEntry.Text,
+                    state = stateEntry.Text,
+                    value = Convert.ToInt32(valueEntry.Text),
+                    weight = Convert.ToInt32(weightEntry.Text)
                 };
 
                 var isValid = GenerateLabel(label);
@@ -48,9 +48,9 @@ namespace smarttrack
                     //passwordEntry.Text = string.Empty;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                messageLabel.Text = ex.Message;
+                Console.Write(ex.Message);
             }
         }
 

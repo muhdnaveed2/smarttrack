@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -35,12 +36,12 @@ namespace smarttrack.Cloud
                 var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
                 HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, ("application/json"));
 
-                HttpResponseMessage result = await client.PostAsync(new Uri(URL_DEV + "token"), content);
+                HttpResponseMessage result = await client.PostAsync(new Uri(URL_DEV + Constants.ACCESS_TOKEN_PATH), content);
 
                 if (result.IsSuccessStatusCode)
                 {
-                    var response = JsonConvert.DeserializeObject(result.Content.ReadAsStringAsync().Result);
-                    App.UserToken = result.ToString();
+                    var response = (JObject)JsonConvert.DeserializeObject(result.Content.ReadAsStringAsync().Result);
+                    App.UserToken = response["access_token"].Value<string>();
                     return true;
                 }
                 else
@@ -56,26 +57,26 @@ namespace smarttrack.Cloud
             using (var c = new HttpClient())
             {
                 var client = new System.Net.Http.HttpClient();
-                client.BaseAddress = new Uri(URL_DEV);
-                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", App.UserToken);
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", "60de225c88489983f3db74f0a3cfeb2b02c3722c");
 
 
 
 
                 var objShippingLabel = new ShippingLabel();
-                objShippingLabel.Company = "One World Express";
-                objShippingLabel.Contact = "One World Express";
-                objShippingLabel.AddressLine1 = "One World House";
-                objShippingLabel.AddressLine2 = "Pump lane";
-                objShippingLabel.AddressLine3 = "Hayes";
-                objShippingLabel.City = "London";
-                objShippingLabel.CountryIso = "GB";
-                objShippingLabel.PostCode = "UB3 3NB";
-                objShippingLabel.Currency = "GBP";
-                objShippingLabel.Value = Convert.ToDecimal(10.00);
-                objShippingLabel.Weight = Convert.ToDecimal(10.500);
-                objShippingLabel.ServiceCode = "1H";
-                objShippingLabel.NumberPieces = 1;
+                objShippingLabel.company = "One World Express";
+                objShippingLabel.contact = "One World Express";
+                objShippingLabel.address_line_1 = "One World House";
+                objShippingLabel.address_line_2 = "Pump lane";
+                objShippingLabel.address_line_3 = "Hayes";
+                objShippingLabel.city = "London";
+                objShippingLabel.countryIso = "GB";
+                objShippingLabel.postcode = "UB3 3NB";
+                objShippingLabel.currency = "GBP";
+                objShippingLabel.value = Convert.ToInt32(10.00);
+                objShippingLabel.weight = Convert.ToInt32(10.500);
+                objShippingLabel.serviceCode = "1H";
+                objShippingLabel.number_pieces = 1;
+                objShippingLabel.description = "Test";
 
                 /*var jsonRequest = new {
                                 
@@ -85,12 +86,12 @@ namespace smarttrack.Cloud
                 var serializedJsonRequest = JsonConvert.SerializeObject(objShippingLabel);
                 HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, ("application/json"));
 
-                HttpResponseMessage result = await client.PostAsync(new Uri(URL_DEV + "generate-label"), content);
+                HttpResponseMessage result = await client.PostAsync(new Uri(URL_DEV + Constants.GENERATE_LABEL_PATH), content);
 
                 if (result.IsSuccessStatusCode)
                 {
                     var response = JsonConvert.DeserializeObject(result.Content.ReadAsStringAsync().Result);
-                    App.UserToken = result.ToString();
+                    App.UserToken = response.ToString();
                     return true;
                 }
                 else
