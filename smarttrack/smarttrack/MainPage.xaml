@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="smarttrack.MainPage" Title="Main Page">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand">
+            <Label Text="AddressLine1" />
+            <Entry x:Name="addressline1Entry" />
+            
+            <Label Text="AddressLine2" />
+            <Entry x:Name="addressline2Entry" />
+
+            <Label Text="AddressLine3" />
+            <Entry x:Name="addressline3Entry" />
+            
+            <Label Text="City" />
+            <Entry x:Name="cityEntry" />
+
+            <Label Text="Company" />
+            <Entry x:Name="companyEntry" />
+            
+            <Label Text="Contact" />
+            <Entry x:Name="contactEntry" />
+
+            <Label Text="Country" />
+            <Entry x:Name="countryisoEntry" />
+            
+            <Label Text="Currency" />
+            <Entry x:Name="currencyEntry" />
+
+            <Label Text="Description" />
+            <Entry x:Name="descriptionEntry" />
+            
+            <Label Text="Email" />
+            <Entry x:Name="emailEntry" />
+            
+            <Label Text="Sender Name" />
+            <Entry x:Name="sendernameEntry" />
+
+            <Label Text="State" />
+            <Entry x:Name="stateEntry" />
+            
+            <Label Text="Value" />
+            <Entry x:Name="valueEntry" />
+
+            <Label Text="Weight" />
+            <Entry x:Name="weightEntry" />
+
+
+            <Button Text="Create Label" Clicked="OnCreateButtonClicked" />
+            <Label x:Name="messageLabel" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

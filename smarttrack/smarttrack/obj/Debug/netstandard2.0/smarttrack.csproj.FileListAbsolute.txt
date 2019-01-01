@@ -1,0 +1,12 @@
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\bin\Debug\netstandard2.0\smarttrack.deps.json
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\bin\Debug\netstandard2.0\smarttrack.dll
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\bin\Debug\netstandard2.0\smarttrack.pdb
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\obj\Debug\netstandard2.0\smarttrack.csproj.CoreCompileInputs.cache
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\obj\Debug\netstandard2.0\smarttrack.AssemblyInfoInputs.cache
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\obj\Debug\netstandard2.0\smarttrack.AssemblyInfo.cs
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\obj\Debug\netstandard2.0\smarttrack.dll
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\obj\Debug\netstandard2.0\smarttrack.pdb
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\obj\Debug\netstandard2.0\LoginPage.xaml.g.cs
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Muhammad Naveed\source\repos\smarttrack\smarttrack\smarttrack\obj\Debug\netstandard2.0\smarttrack.csprojAssemblyReference.cache
