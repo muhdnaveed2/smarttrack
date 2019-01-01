@@ -10,7 +10,7 @@ namespace smarttrack
 		public App ()
 		{
 			if (!IsUserLoggedIn) {
-				MainPage = new NavigationPage (new LoginPage ());
+				MainPage = new NavigationPage (new MainPage ());
 			} else {
 				MainPage = new NavigationPage (new smarttrack.MainPage ());
 			}
