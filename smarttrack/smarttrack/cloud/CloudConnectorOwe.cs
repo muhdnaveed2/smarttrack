@@ -13,10 +13,10 @@ namespace smarttrack.Cloud
         string password;
         string baseUrl;
 
-        #if DEBUG
+#if DEBUG
         public const string URL_DEV = "http://staging.smarttrack.co/api/";
 
-        #endif
+#endif
         public const string URL_PROD = "http://smarttrack.co/api/";
 
         public CloudConnectorOwe(string url = URL_DEV)
@@ -35,7 +35,7 @@ namespace smarttrack.Cloud
                 var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
                 HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, ("application/json"));
 
-                HttpResponseMessage result =  await client.PostAsync(new Uri(URL_DEV + "token"), content);
+                HttpResponseMessage result = await client.PostAsync(new Uri(URL_DEV + "token"), content);
 
                 if (result.IsSuccessStatusCode)
                 {
@@ -57,12 +57,35 @@ namespace smarttrack.Cloud
             {
                 var client = new System.Net.Http.HttpClient();
                 client.BaseAddress = new Uri(URL_DEV);
-                var jsonRequest = new { client_id = "e6ee15809f8932272006585b07aa46d9", client_secret = "eecfb107b14d4935019e45ff02f79fac", grant_type = "client_credentials" };
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", App.UserToken);
 
-                var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
+
+
+
+                var objShippingLabel = new ShippingLabel();
+                objShippingLabel.Company = "One World Express";
+                objShippingLabel.Contact = "One World Express";
+                objShippingLabel.AddressLine1 = "One World House";
+                objShippingLabel.AddressLine2 = "Pump lane";
+                objShippingLabel.AddressLine3 = "Hayes";
+                objShippingLabel.City = "London";
+                objShippingLabel.CountryIso = "GB";
+                objShippingLabel.PostCode = "UB3 3NB";
+                objShippingLabel.Currency = "GBP";
+                objShippingLabel.Value = Convert.ToDecimal(10.00);
+                objShippingLabel.Weight = Convert.ToDecimal(10.500);
+                objShippingLabel.ServiceCode = "1H";
+                objShippingLabel.NumberPieces = 1;
+
+                /*var jsonRequest = new {
+                                
+                                           ""    
+                                      };*/
+
+                var serializedJsonRequest = JsonConvert.SerializeObject(objShippingLabel);
                 HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, ("application/json"));
 
-                HttpResponseMessage result = await client.PostAsync(new Uri(URL_DEV + "token"), content);
+                HttpResponseMessage result = await client.PostAsync(new Uri(URL_DEV + "generate-label"), content);
 
                 if (result.IsSuccessStatusCode)
                 {

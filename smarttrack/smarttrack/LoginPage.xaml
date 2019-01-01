@@ -4,12 +4,12 @@
         <ToolbarItem Text="Sign Up" Clicked="OnSignUpButtonClicked" />
     </ContentPage.ToolbarItems>-->
     <ContentPage.Content>
-        <StackLayout VerticalOptions="StartAndExpand">
+        <StackLayout VerticalOptions="Center" Margin="20,0">
             <Label Text="Username" />
             <Entry x:Name="usernameEntry" Placeholder="username" />
             <Label Text="Password" />
-            <Entry x:Name="passwordEntry" IsPassword="true" />
-            <Button Text="Login" Clicked="OnLoginButtonClicked" />
+            <Entry x:Name="passwordEntry" Placeholder="password" IsPassword="true" />
+            <Button Text="Login" BackgroundColor="DodgerBlue" TextColor="White" Margin="0,50,0,0" Clicked="OnLoginButtonClicked" />
             <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>
