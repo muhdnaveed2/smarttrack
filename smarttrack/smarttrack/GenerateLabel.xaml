@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="smarttrack.GenerateLabel" Title="Generate Label"  BackgroundImage="background_image.png">
     <ContentPage.Content>
         <ScrollView Orientation="Both">
-            <StackLayout VerticalOptions="Center" Margin="0,5">
+            <StackLayout VerticalOptions="Center" Margin="20,0">
 
                 <Label Text="Address Line 1" />
                 <Entry x:Name="addressline1Entry" />
