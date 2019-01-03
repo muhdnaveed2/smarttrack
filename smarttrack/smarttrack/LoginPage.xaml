@@ -1,28 +1,49 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="smarttrack.LoginPage" Title="Login" NavigationPage.HasNavigationBar="False" BackgroundImage="background_image.png">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="smarttrack.LoginPage" Title="Login" 
+             NavigationPage.HasNavigationBar="False">
     <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Sign Up" Clicked="OnSignUpButtonClicked" />
     </ContentPage.ToolbarItems>-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <telerikInput:BorderStyle x:Key="EntryBorderStyle"  BorderThickness="1" BorderColor="LightSkyBlue"  CornerRadius="0" />
+            <Style x:Name="label" TargetType="Label">
+                <Setter Property="FontSize" Value="10"></Setter>
+                <Setter Property="TextColor" Value="WhiteSmoke"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+            </Style>
+
+            <!--<telerikInput:BorderStyle x:Key="ButtonBorderStyle"  BorderThickness="1" BorderColor="AliceBlue" CornerRadius="8" />-->
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Margin="20,0">
-            <Image Source="smarttrack_logo.png" HorizontalOptions="Center" WidthRequest="250"/>
-            <Label Text="Username" />
-            <Entry x:Name="usernameEntry" />
-            <Label Text="Password" />
-
-
-            <Entry x:Name="passwordEntry"  IsPassword="true" Grid.Column="0"></Entry>
-            <Image Source="password_reveal_thumbnail.png" HorizontalOptions="End" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="1" >
+            <Image Source="smarttrack_logo.png" HorizontalOptions="Center" WidthRequest="100" Margin="10,0"/>
+            <Label Text="Sign In"  />
+            
+            <telerikInput:RadEntry x:Name="usernameEntry" WatermarkText="User name"  WatermarkTextColor="#6EA3FF" BorderStyle="{StaticResource EntryBorderStyle}" />
+            <!--<Entry x:Name="usernameEntry" /> -->
+            <!--<Label Text="Password" />-->
+            <telerikInput:RadEntry x:Name="passwordEntry" WatermarkText="Password" WatermarkTextColor="#6EA3FF" IsPassword="True" BorderStyle="{StaticResource EntryBorderStyle}" />
+            <!--<Entry x:Name="passwordEntry"  IsPassword="true" Grid.Column="0"></Entry> -->
+            <!--<Image Source="password_reveal_thumbnail.png" HorizontalOptions="End" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" Grid.Column="1" >
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="ShowPass" NumberOfTapsRequired="1" />
                 </Image.GestureRecognizers>
-            </Image>
-
-
-
-
-            <Button Text="Login" BackgroundColor="DodgerBlue" TextColor="White" Margin="0,50,0,0" Clicked="OnLoginButtonClicked" />
-
+            </Image>-->            
+            <!--<Button Text="Login" BackgroundColor="DodgerBlue" TextColor="White" Margin="0,50,0,0" />-->
+            <telerikInput:RadButton x:Name="button" 
+                        Text="Login"  
+                        BorderThickness="2" 
+                        BorderColor="Blue" 
+                        Margin="0,50,0,0"
+                        Clicked="OnLoginButtonClicked"
+                        BorderRadius="60"
+                        BackgroundColor="White"
+                        />
             <Label x:Name="messageLabel" />
         </StackLayout>
     </ContentPage.Content>

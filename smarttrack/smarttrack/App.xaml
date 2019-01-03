@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="smarttrack.App">
-    <Application.Resources>
-        <Style TargetType="Label">
+<Application xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="smarttrack.App">
+    <Application.Resources>        
+        
+        <Style x:Name="label" TargetType="Label">
             <Setter Property="FontSize" Value="10"></Setter>
             <Setter Property="TextColor" Value="WhiteSmoke"></Setter>
             <Setter Property="FontAttributes" Value="Bold"></Setter>
 
         </Style>
-        <Style TargetType="Entry">
+        <!--<Style TargetType="Entry">
             <Setter Property="FontSize" Value="12"></Setter>
             <Setter Property="TextColor" Value="Black"></Setter>
             <Setter Property="FontAttributes" Value="None"></Setter>
             <Setter Property="BackgroundColor" Value="Gray"></Setter>
-
-
-        </Style>
+        </Style>-->
     </Application.Resources>
 </Application>

@@ -17,7 +17,7 @@ namespace smarttrack.Cloud
             {
                 var client = new System.Net.Http.HttpClient();
                 client.BaseAddress = new Uri(Constants.URL_DEV);
-                var jsonRequest = new { client_id = "e6ee15809f8932272006585b07aa46d9", client_secret = "eecfb107b14d4935019e45ff02f79fac", grant_type = "client_credentials" };
+                var jsonRequest = new { client_id = user.Username, client_secret = user.Password, grant_type = Constants.GRANT_TYPE };
 
                 var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
                 HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, ("application/json"));
